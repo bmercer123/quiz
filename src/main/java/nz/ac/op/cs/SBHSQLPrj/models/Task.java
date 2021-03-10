@@ -1,13 +1,16 @@
 package nz.ac.op.cs.SBHSQLPrj.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+@JsonIgnoreProperties
 @Entity
 public class Task {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Integer id;
     String text;
     String day;
