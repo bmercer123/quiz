@@ -10,18 +10,24 @@ import java.util.List;
 
 @Service
 public class QuestionService {
-    /*@Autowired
+    @Autowired
     private QuestionRepository questionRepository;
 
     public List<Question> getAllQuestions(){
         List<Question> questions = new ArrayList<Question>();
         questionRepository.findAll().forEach(questions::add);
         return questions;
-        //return quizUsers;
+
     }
 
-    public Question getTask(Long id){
+    public Question getQuestion(Long id){
         return questionRepository.findById(id).get();
+
+    }
+    public void addQuestions(List<Question> questions){
+        for(Question q:questions){
+            questionRepository.save(q);
+        }
 
     }
 
@@ -37,5 +43,5 @@ public class QuestionService {
         questionRepository.deleteById(id);
     }
 
-     */
+
 }

@@ -1,9 +1,6 @@
 package nz.ac.op.cs.SBHSQLPrj;
 
-import nz.ac.op.cs.SBHSQLPrj.service.QuestionService;
-import nz.ac.op.cs.SBHSQLPrj.service.QuizService;
-import nz.ac.op.cs.SBHSQLPrj.service.TaskService;
-import nz.ac.op.cs.SBHSQLPrj.service.UserService;
+import nz.ac.op.cs.SBHSQLPrj.service.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +23,11 @@ public class SbhsqlPrjApplication {
 	@Bean
 	public QuizService getQuizService(){
 		return new QuizService();
+	}
+
+	@Bean
+	public MyQuizService getMyQuizService(){
+		return new MyQuizService();
 	}
 	@Bean
 	public RestTemplate getRestTemplate(){

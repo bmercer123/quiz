@@ -2,35 +2,31 @@ package nz.ac.op.cs.SBHSQLPrj.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import java.util.List;
 
-
+@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Question {
-
+    @Id
+    @GeneratedValue( strategy= GenerationType.AUTO )
     Long id;
-    String quizID;
 
     String category;
     String type;
     String difficulty;
     String question;
     String correct_answer;
-    //@ElementCollection // 1
-    //@CollectionTable(name = "incorrect_answers", joinColumns = @JoinColumn(name = "id")) // 2
+    @ElementCollection // 1
+    @CollectionTable(name = "incorrect_answers", joinColumns = @JoinColumn(name = "id")) // 2
     List<String> incorrect_answers;
 
     public Question(){
 
     }
 
-    public Question(Long id, String quizID, String category, String type, String difficulty, String question, String correct_answer, List<String> incorrect_answers) {
+    public Question(Long id, String category, String type, String difficulty, String question, String correct_answer, List<String> incorrect_answers) {
         this.id = id;
-        this.quizID = quizID;
         this.category = category;
         this.type = type;
         this.difficulty = difficulty;
@@ -45,14 +41,6 @@ public class Question {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getQuizID() {
-        return quizID;
-    }
-
-    public void setQuizID(String quizID) {
-        this.quizID = quizID;
     }
 
     public String getCategory() {

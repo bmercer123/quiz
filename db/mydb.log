@@ -1,7 +1,3 @@
-/*C12*/SET SCHEMA PUBLIC
-DELETE FROM QUIZ_USER WHERE ID='100'
-INSERT INTO QUIZ_USER VALUES('100','520 Queen Street Auckland CBD','John')
-COMMIT
-INSERT INTO QUIZ VALUES(4,10,'March 2021','100')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
+/*C3*/SET SCHEMA PUBLIC
+alter table my_quiz_questions drop constraint UK_3t7dl1q5gk4m8emqpr2rtygd0
+alter table my_quiz_questions add constraint UK_3t7dl1q5gk4m8emqpr2rtygd0 unique (questions_id)
