@@ -13,7 +13,7 @@ import java.util.List;
 public class TaskController {
 
     @Autowired
-    private nz.ac.op.cs.SBHSQLPrj.service.TaskService taskService;
+    private TaskService taskService;
 
     @GetMapping("/tasks")
     public List<Task> getTasks(){
